@@ -78,7 +78,7 @@ The project also serves as a **hands-on learning and portfolio project**, demons
 ## High-Level Architecture
 The system follows a **layered architecture** with clear separation of concerns:
 
-![High-Level Architecture](docs/high-level-architecture)
+![High-Level Architecture](./docs/high-level-architecture)
 
 This diagram shows the conceptual architecture of the e-commerce platform and how clients, backend services, and the database interact.
 The architecture evolves over phases; the diagram above represents Phase 1.
