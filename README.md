@@ -1,4 +1,4 @@
-# E-Commerce Platform – Spring Boot & Cloud-Native Backend
+# E-Commerce Platform
 
 ## Project Vision
 
