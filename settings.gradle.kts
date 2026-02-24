@@ -1,1 +1,1 @@
-rootProject.name = "ecommerce-platform"
+rootProject.name = "ecommerce-bazzarly"
