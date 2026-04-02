@@ -5,7 +5,7 @@ import org.mahdi.ecommercebazzarly.dto.login.LoginRequest
 import org.mahdi.ecommercebazzarly.dto.login.LoginResponse
 import org.mahdi.ecommercebazzarly.dto.register.RegisterRequest
 import org.mahdi.ecommercebazzarly.dto.register.RegisterResponse
-import org.mahdi.ecommercebazzarly.service.UserService
+import org.mahdi.ecommercebazzarly.service.user.UserService
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PostMapping

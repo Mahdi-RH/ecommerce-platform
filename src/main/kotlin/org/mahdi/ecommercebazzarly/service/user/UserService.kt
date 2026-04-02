@@ -1,4 +1,4 @@
-package org.mahdi.ecommercebazzarly.service
+package org.mahdi.ecommercebazzarly.service.user
 
 import org.mahdi.ecommercebazzarly.data.model.User
 import org.mahdi.ecommercebazzarly.dto.login.LoginRequest

@@ -1,6 +1,7 @@
-package org.mahdi.ecommercebazzarly.service
+package org.mahdi.ecommercebazzarly.service.user
 
 import org.mahdi.ecommercebazzarly.repository.UserRepository
+import org.springframework.security.core.userdetails.User
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.security.core.userdetails.UsernameNotFoundException
@@ -15,7 +16,7 @@ class CustomUserDetailsService(
         val user = userRepository.findByEmail(email)
             ?: throw UsernameNotFoundException("User not found")
 
-        return org.springframework.security.core.userdetails.User(
+        return User(
             user.email,
             user.password,
             emptyList() // TODO(roles later)

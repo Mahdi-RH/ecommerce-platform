@@ -1,4 +1,4 @@
-package org.mahdi.ecommercebazzarly.service
+package org.mahdi.ecommercebazzarly.service.user
 
 import jakarta.servlet.FilterChain
 import jakarta.servlet.http.HttpServletRequest

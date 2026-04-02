@@ -1,6 +1,6 @@
 package org.mahdi.ecommercebazzarly.config
 
-import org.mahdi.ecommercebazzarly.service.JwtAuthenticationFilter
+import org.mahdi.ecommercebazzarly.service.user.JwtAuthenticationFilter
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
@@ -29,6 +29,7 @@ class SecurityConfig(
             .authorizeHttpRequests {
                 it
                     .requestMatchers("/api/v1/auth/**").permitAll()
+                    .requestMatchers("/api/v1/products/**").permitAll()
                     .anyRequest().authenticated()
             }
             .sessionManagement {

@@ -1,4 +1,4 @@
-package org.mahdi.ecommercebazzarly.service
+package org.mahdi.ecommercebazzarly.service.user
 
 import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.io.Decoders
