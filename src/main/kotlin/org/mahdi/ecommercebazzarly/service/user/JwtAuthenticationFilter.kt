@@ -3,6 +3,7 @@ package org.mahdi.ecommercebazzarly.service.user
 import jakarta.servlet.FilterChain
 import jakarta.servlet.http.HttpServletRequest
 import jakarta.servlet.http.HttpServletResponse
+import org.mahdi.ecommercebazzarly.service.user.model.CustomUserPrincipal
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
 import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource
@@ -11,8 +12,8 @@ import org.springframework.web.filter.OncePerRequestFilter
 
 @Component
 class JwtAuthenticationFilter(
-    private val jwtService: JwtService,
-    private val userDetailsService: CustomUserDetailsService
+    private val jwtService: JwtService
+//    private val userDetailsService: CustomUserDetailsService
 ) : OncePerRequestFilter() {
 
     override fun doFilterInternal(
@@ -28,23 +29,27 @@ class JwtAuthenticationFilter(
             return
         }
 
-        val token = authHeader.substring(7)
-        val email = jwtService.extractEmail(token)
-
         if (SecurityContextHolder.getContext().authentication == null) {
+            val token = authHeader.substring(7)
+//            val userDetails = userDetailsService.loadUserByUsername(email)
+            val userId = jwtService.extractUserId(token)
+            val email = jwtService.extractEmail(token)
 
-            val userDetails = userDetailsService.loadUserByUsername(email)
+            val principal = CustomUserPrincipal(
+                userId = userId,
+                email = email,
+                password = "",
+                authorities = emptyList()
+            )
 
-            if (jwtService.isTokenValid(token, userDetails)) {
 
+            if (jwtService.isTokenValid(token, principal)) {
                 val authToken = UsernamePasswordAuthenticationToken(
-                    userDetails,
+                    principal,
                     null,
-                    userDetails.authorities
+                    principal.authorities
                 )
-
                 authToken.details = WebAuthenticationDetailsSource().buildDetails(request)
-
                 SecurityContextHolder.getContext().authentication = authToken
             }
         }

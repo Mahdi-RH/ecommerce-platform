@@ -35,6 +35,16 @@ class JwtService(
             .subject
     }
 
+    fun extractUserId(token: String): Long {
+        val claims = Jwts.parserBuilder()
+            .setSigningKey(key)
+            .build()
+            .parseClaimsJws(token)
+            .body
+
+        return claims["userId"].toString().toLong()
+    }
+
     fun isTokenValid(token: String, user: UserDetails): Boolean {
         val email = extractEmail(token)
         return email == user.username && !isTokenExpired(token)
