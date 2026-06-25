@@ -16,7 +16,7 @@ The project also serves as a **hands-on learning and portfolio project**, demons
 ## Tech Stack
 
 ### Backend
-- **Java / Kotlin**
+- **Kotlin**
 - **Spring Boot**
 - Spring Web (REST APIs)
 - Spring Data JPA (Hibernate)
